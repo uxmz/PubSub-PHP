@@ -1,5 +1,7 @@
 <?php
 
+namespace PubSub;
+
 class PubSub {
   
   private static $events = array();
@@ -26,7 +28,7 @@ class PubSub {
    */
   public static function subscribe($event, $callback) {
     if( !is_callable($callback) ) {
-      throw new InvalidArgumentException();
+      throw new \InvalidArgumentException();
     }
     
     if( empty(self::$events[$event]) ) {
@@ -63,4 +65,3 @@ class PubSub {
   }
 
 }
-
